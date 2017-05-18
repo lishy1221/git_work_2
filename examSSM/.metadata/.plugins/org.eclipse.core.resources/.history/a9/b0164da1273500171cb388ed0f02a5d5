@@ -1,0 +1,70 @@
+package java8Test;
+
+import java.time.*;
+
+public class TimeTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		TimeTest t=new TimeTest();
+		Clock clock=Clock.systemUTC();
+	      System.out.println(clock.instant());//获取时钟的当前时刻,在得到的时间+8就是北京时间。
+	      System.out.println(clock.millis());//获取时钟的当前毫秒瞬间
+		t.testLocalDateTime();
+		t.testZonedDateTime();
+
+	}
+	public void testLocalDateTime(){
+	    
+	      // 获取当前的日期时间
+	      LocalDateTime currentTime = LocalDateTime.now();
+	      System.out.println("当前时间: " + currentTime);
+	        
+	      LocalDate date1 = currentTime.toLocalDate();
+	      System.out.println("date1: " + date1);
+	        
+	      Month month = currentTime.getMonth();
+	      int day = currentTime.getDayOfMonth();
+	      int seconds = currentTime.getSecond();
+	        
+	      System.out.println("月: " + month +", 日: " + day +", 秒: " + seconds);
+	        
+	      LocalDateTime date2 = currentTime.withDayOfMonth(10).withYear(2012);
+	      System.out.println("date2: " + date2);
+	        
+	      // 12 december 2014
+	      LocalDate date3 = LocalDate.of(2014, Month.DECEMBER, 12);
+	      System.out.println("date3: " + date3);
+	        
+	      // 22 小时 15 分钟
+	      LocalTime date4 = LocalTime.of(22, 15);
+	      System.out.println("date4: " + date4);
+	        
+	      // 解析字符串
+	      LocalTime date5 = LocalTime.parse("20:15:30");
+	      System.out.println("date5: " + date5);
+	      
+	      //Duration类，它持有的时间精确到秒和纳秒。这使得我们可以很容易得计算两个日期之间的不同
+	      LocalDateTime from=LocalDateTime.of(2016,month.JANUARY,15,0,0,0);
+	      LocalDateTime to=LocalDateTime.of(2017,month.MAY,9,11,30,0);
+	      final Duration duration = Duration.between( from, to );
+	      System.out.println( "Duration in days: " + duration.toDays() );
+	      System.out.println( "Duration in hours: " + duration.toHours() );
+	      
+	      
+	   }
+	
+	 public void testZonedDateTime(){//使用时区
+		    
+	      // 获取当前时间日期
+	      ZonedDateTime date1 = ZonedDateTime.parse("2017-5-09T10:15:30+05:30[Asia/Shanghai]");
+	      System.out.println("date1: " + date1);
+	        
+	      ZoneId id = ZoneId.of("Europe/Paris");
+	      System.out.println("ZoneId: " + id);
+	        
+	      ZoneId currentZone = ZoneId.systemDefault();
+	      System.out.println("当期时区: " + currentZone);
+	   }
+
+}

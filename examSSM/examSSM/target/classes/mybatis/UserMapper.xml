@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserMapper">
+
+
+	
+	<!--表名 -->
+	<sql id="tableName">
+		USER
+	</sql>
+	
+	
+	
+	<!-- 字段 -->
+	<sql id="Field">
+		ID,		
+		USERNAME,
+		PASSWORD,
+		AGE
+	</sql>
+		
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+		#{ID},
+		#{USERNAME},
+		#{PASSWORD},
+		#{AGE}
+	</sql>
+		
+
+
+	<!-- 通过id获取数据 -->
+	<select id="getUserById" parameterType="int" resultType="User" >
+		select 
+			<include refid="Field"></include>
+		from 
+			<include refid="tableName"></include>
+		where 
+			ID = #{ID}
+	</select>
+
+</mapper>

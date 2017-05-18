@@ -1,0 +1,15 @@
+package java8Test;
+
+import java.time.Clock;
+
+public class dd {
+	public static void main(String args[]){
+		Clock clock=Clock.systemUTC();
+		System.out.println(clock.instant());
+		System.out.println(System.currentTimeMillis());
+		
+		
+	}
+
+}
+

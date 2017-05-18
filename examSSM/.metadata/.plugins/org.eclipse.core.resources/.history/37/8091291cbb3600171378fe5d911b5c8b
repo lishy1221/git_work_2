@@ -1,0 +1,15 @@
+package java8Test;
+
+public class LambdaScopeTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		final String  s = "Hello";
+		greetHello g=mesg->System.out.println(s+mesg);
+		g.sayHello(" Lisa");
+	}
+	interface greetHello{
+		void sayHello(String message);
+	}
+
+}

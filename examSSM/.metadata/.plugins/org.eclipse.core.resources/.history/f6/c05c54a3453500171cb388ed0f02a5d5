@@ -1,0 +1,21 @@
+package java8Test;
+
+public class RepeatableTest{
+
+    @Authority(role="Admin")
+
+    @Authority(role="Manager")
+
+    public void doSomeThing(){
+    	System.out.println();
+    }
+    public static void main(String[] args) {
+    	System.out.println(44);
+    	for( Authority authority: Authority.class.getAnnotationsByType( Authority.class ) ) {
+
+    		System.out.println("===repeat==="+authority.role() );
+
+    		     }
+    }
+
+}

@@ -1,0 +1,18 @@
+package java8Test;
+
+import java.time.Clock;
+
+public class dd {
+	public static void main(String args[]){
+		Clock clock=Clock.systemUTC();
+		Clock clock2=Clock.systemDefaultZone();
+		System.out.println(clock2.instant());
+		System.out.println(clock.instant());
+		System.out.println(clock.millis());
+		System.out.println(System.currentTimeMillis());
+		
+		
+	}
+
+}
+
